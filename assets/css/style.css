@@ -1,0 +1,71 @@
+/*.body {
+  
+    background-size: cover; 
+    display: flex;
+    justify-content: center;
+    align-items: space-around;
+    
+}
+*/
+#tasks {
+    display: flex;
+    flex-wrap: wrap;
+}
+.body {
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+}
+#weather {
+    padding: 10px;
+    color: aquamarine;
+    display: flex;  
+    float: left;
+    width: fit-content;
+}
+.form{
+    width: 100%;
+}
+.panel-heading {
+    background-color: black;
+    color: aqua;
+}
+.panel {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    border-radius: 10px;
+    background-color: black;
+    color: aqua;
+}
+/*.row {
+    display: flex;
+    width: 100%;
+}*/
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    
+    
+}
+.ng-scope {
+    display: flex;
+    width: max-content;
+}
+.panel-body{
+    display: flex;
+    flex-wrap: wrap;
+    color: aqua;
+}
+.form-group {
+    width: fit-content;
+    
+    border-color: aliceblue;
+    
+}
+.navbar {
+    color: aqua;
+}

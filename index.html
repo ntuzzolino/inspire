@@ -3,21 +3,145 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Inspire</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body ng-controller="ImageController as ic">
-	<div ng-controller="WeatherController as wc">
+<body ng-controller="ImageController as ic" style="background: url({{ic.imageData.url}}) no-repeat center center fixed; background-size: cover;">
 
+		<div class="row">
+		<!--<img ng-src="{{ic.imageData.large_url}}" id="bgImg">-->
+		<div class="col-md-4" id="weather">
+		<div class="container">
+		<div ng-controller="WeatherController as wc">
+		
+			
+				<nav class="navbar navbar-inverse">
+						<h1>
+							<div class="row"><div class="col-md-4">{{wc.weather.name}}</div></div>
+							<div class="row"><div class="col-md-4">{{wc.weather.main.temp * 1.8 - 459.67 | number:2}}°</div></div>
+							<div class="row"><div class="col-md-4">{{wc.weather.weather[0].description}}</div></div>
+						</h1>
+					
+				</nav>
+			</div>
+		</div>
+		</div>
+		</div>
+		
+		
+		
+		
+		
+			<div class="col-md-8">
+				<div class="container" id="tasks">
+				<div ng-controller="TodoController as tc">	
+				<nav class="navbar navbar-inverse">
+					<h1>TO DO</h1>
+					
+						
+						<!--<input type="text" class="form-control" placeholder="Text input" ng-model="tc.nTask.>-->
+						
+						<form ng-submit="tc.addTodo(tc.newTask)" class="form-horizontal">
+							<div class="form-group">
+								<div class="col-md-12"><input type="text" class="form-control" placeholder="New Item" ng-model="tc.newTask.title">
+							</div></div>
+							<div class="form-group">
+								<div class="col-md-12"><input type="text" class="form-control" placeholder="assgnd to"ng-model="tc.newTask.responsibleParty">
+							</div></div>
+							<div class="form-group">
+								<div class="col-md-12"><input type="date" class="form-control" placeholder="due date" ng-model="tc.newTask.dueBy">
+							</div></div>
+							
+							
+							<div class="col-md-12"><div class="btn-group">
+								<button type="button" class="btn btn-outline btn default" ng-click="tc.addTask(tc.newTask)">Add New Task</button>
+								<button type="reset" class="btn btn-outline btn-danger">Clear Form</button>
+							</div></div>
+						
+						
+						
+						</nav>
+						
+						
+						
+						
+						
+					
+					<div class="col-md-3" ng-repeat="task in tc.todos">	
+					<div class="container" id="todoLi">
+					<nav class="navbar navbar-inverse">
+					<form class="form-horizontal">
+					
+					<div class="row">
+					<div class="col-md-12">
+						Task Item:<h3>{{task.title}}</h3>
+						</div>
+					</div>
+					
+					<div class="row">
+					<div class="col-md-12">
+					Person assgined to: <h3>{{task.responsibleParty}}</h3>
+					</div>
+					</div>
+					<div class="row">
+					<div class="col-md-12">
+					Due date: <h3>{{task.dueBy}}</h3>
+					</div>
+					</div>
+					<div class="checkbox">
+ 					<label><input type="checkbox" value="">Mark Finished</label>
+					</div>
+					
+					</nav>	
+					</div>
+					
+				</div>
+				</div>
+				</div>
+				</div>
+				</form>
+				</div>
+			
+	
+	
+	<div class="row" id="center">
+		<div class="col-md-6">
+	<div class="container" height="20%">
+		
+		<div class="row" id="clock">
+			
+		<div class="col-md-6" height="50px">
+			{{t.time}}
+		</div>
+		</div>
+		
+		
+		<div class="row" id="quotes">
+			<div class="col-md-6">
+		<div ng-controller="QuoteController as qc">
+						
+							<div class="panel panel-warning">
+								<div class="panel-heading">
+									{{qc.quote.quote}}
+									</div>
+								<div class="panel-body" background-color="black" color="aqua">
+									{{qc.qoute.author}}
+								</div>
+					</div>
+				
+			</div>
+		</div>
+
+
+		
 	</div>
-
-	<div ng-controller="QuoteController as qc">
-
 	</div>
-
-	<div ng-controller="TodoController as tc">
-
 	</div>
+	</div>
+	</div>
+	
 
 
 
